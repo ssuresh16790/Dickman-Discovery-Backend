@@ -1,13 +1,14 @@
 const today = new Date();
 const dayOfWeek = today.getDay();
 const indexAlgorithm = require('../algorithm/indexAlgorithm');
+const serverstart = require('../server/server.json') 
+const server = serverstart.server;
 
-module.exports.serverStart = async (req, res) => {
-  const server = req.body.server
+module.exports.serverStart = async () => {
   while (server == "start") {
 
     // check the weekday or holiday
-    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+    if (dayOfWeek !== 0 && dayOfWeek !== 5) {
       // Market is open, run the algorithm
       await indexAlgorithm.indexAlgorithm();
     } else {
@@ -16,4 +17,3 @@ module.exports.serverStart = async (req, res) => {
   }
   console.log('Server Stopped');
 };
-
