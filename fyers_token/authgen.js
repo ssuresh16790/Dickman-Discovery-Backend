@@ -8,10 +8,11 @@ module.exports.authCodeGeneration = async (req, res) => {
       fyers.setAppId(appId);
       fyers.setRedirectUrl(url);
       var generateUrl = fyers.generateAuthCode();
-      fs.writeFileSync('token/keys.json', JSON.stringify({appId:appId,url:url}, null, 2));
+      fs.writeFileSync('fyers_token/keys.json', JSON.stringify({appId:appId,url:url}, null, 2));
 
       return res.send({
         status : true,
+        message : "successfully auth code generated",
         url : generateUrl
       })
     } catch (error) {

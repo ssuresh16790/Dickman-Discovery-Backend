@@ -6,8 +6,7 @@ const _ = require("lodash");
 const axios = require("axios");
 const csv = require("csv-parser");
 const { Readable } = require("stream");
-const token = require("../token/accessToken.json");
-const access = require("../token/accessToken");
+const token = require("../fyers_token/token_saved.json");
 const { log } = require("console");
 const currentDate = new Date();
 const year = currentDate.getUTCFullYear().toString().slice(-2);
@@ -383,7 +382,7 @@ module.exports.indexAlgorithm = async (req, res) => {
     const tag2 = 2;
     const tag3 = 3;
     const tag4 = 4;
-
+    
     const getCurrentTime = () => {
       const currentTime = new Date();
       return currentTime.toTimeString().split(" ")[0];
@@ -2224,7 +2223,10 @@ module.exports.indexAlgorithm = async (req, res) => {
         engine = "OFF";
       }
     }
-  } catch (error) {}
+   
+  } catch (error) {
+    console.log(error);
+  }
   return null;
 };
 

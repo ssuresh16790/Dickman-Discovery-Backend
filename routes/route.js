@@ -1,11 +1,12 @@
 const router =  require('express').Router();
-const authCode = require('../token/authCode');
-const accesstoken =  require('../token/accessToken');
+const authCode = require('../fyers_token/authgen');
+const accesstoken =  require('../fyers_token/generate_access_token');
 const indexAlgorithm = require('../algorithm/indexAlgorithm')
 const runAlgorithm =  require('../server/serverStart');
 
 router.get('/', (req, res) => {
-    return console.log("Sever Listening 9000");
+     console.log("server listening 9000");
+     return res.send("server listening 9000")
 });
 
 router.post('/authcode', authCode.authCodeGeneration);
