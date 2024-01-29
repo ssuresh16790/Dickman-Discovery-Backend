@@ -7,7 +7,6 @@ const axios = require("axios");
 const csv = require("csv-parser");
 const { Readable } = require("stream");
 const token = require("../fyers_token/token_saved.json");
-const { log } = require("console");
 const currentDate = new Date();
 const year = currentDate.getUTCFullYear().toString().slice(-2);
 const month = currentDate
